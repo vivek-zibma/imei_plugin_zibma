@@ -14,15 +14,15 @@ class ImeiPlugin {
   }
 
   // get multi imei numbers (dual-sim, tri-sim) @return List<String>
-  static Future<List<String>> getImeiMulti({
+  static Future< String > getImeiMulti({
     bool shouldShowRequestPermissionRationale = false
   }) async {
-    final List<String> imeis = await _channel.invokeListMethod('getImeiMulti', { "ssrpr": shouldShowRequestPermissionRationale });
+    final String imeis = await _channel.invokeListMethod('getImeiMulti', { "ssrpr": shouldShowRequestPermissionRationale }).toString();
     return imeis;
   }
 
   static Future<String> getId() async {
     return await _channel.invokeMethod('getId');
   }
-  
+
 }
